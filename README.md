@@ -1,6 +1,6 @@
 # Overview
 
-Sk (Seek) command-line interface (CLI) application written in Rust allows users to input any search query as argument and opens a browser tab to search the input using various search engines. It provides a convenient way to quickly look up information from different sources without manually opening a web browser.
+Sk (Seek) is a command-line interface (CLI) application written in Rust that allows users to input any search query as argument and opens a browser tab to search the input using various search engines. It provides a convenient way to quickly look up information from different sources without manually opening a web browser.
 
 # Features
 
@@ -13,7 +13,7 @@ _Make sure **Rust** is installed on your system - this application was built & t
 
 # Installation
 
-To use Rust Search CLI, follow these steps:
+To use Sk, follow these steps:
 
 **1. Clone the Repository**
 
