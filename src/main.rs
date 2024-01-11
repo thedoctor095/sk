@@ -24,7 +24,7 @@ fn parse_url(args: Vec<String>) -> Url {
             "-g" => GOOGLE,
             "-b" => BING,
             _ => {
-                println!("Invalid argument {}, aborting", sk_engine);
+                eprintln!("Invalid argument {}, aborting", sk_engine);
                 process::exit(0);
             }
         };
