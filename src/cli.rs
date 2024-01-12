@@ -1,6 +1,6 @@
 use structopt::StructOpt;
 
-#[derive(Debug, StructOpt)]
+#[derive(StructOpt)]
 #[structopt(
 name = "Sk (Seek)",
 about = "A command line app that opens a browser tab and searches for a query \

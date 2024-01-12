@@ -35,16 +35,22 @@ cargo build --release
 
 # Usage
 ```
-sk <OPTIONAL_ARG> <QUERY_STRING>
-  Optional args
-  -ddg              Uses DuckDuckGo search engine
-  -g (default)      Uses Google search engine
-  -b                Uses Bing search engine
-  
-  Query string
-  Example: weather today in Oslo
+Sk (Seek) 0.1.3
+A command line app that opens a browser tab and searches for a query given a search engine argument (or not)
 
-  Note: if two optional args are provided, the later will be considered part of the query
+USAGE:
+    sk [FLAGS] <search-query>...
+
+FLAGS:
+    -b, --bg         Sets search engine to Bing
+    -d, --ddg        Sets search engine to DuckDuckGo
+    -g, --gg         Sets search engine to Google (default)
+    -h, --help       Prints help information
+    -V, --version    Prints version information
+
+ARGS:
+    <search-query>...    The query to be searched with the selected search engine
+
 ```
 
 # Examples
@@ -55,7 +61,7 @@ sk <OPTIONAL_ARG> <QUERY_STRING>
 ```
 **2. Specify Search Engine**
 ```
-./target/release/sk -ddg "weather today in Oslo"
+./target/release/sk --ddg "weather today in Oslo"
 ```
 **3. Help Menu**
 ```
@@ -72,6 +78,6 @@ This project is licensed under the MIT License - see the [LICENSE](https://githu
 
 # Acknowledgments
 
-This project uses the [url](https://crates.io/crates/url) & [webbrowser](https://crates.io/crates/webbrowser) crates.
+This project uses the [url](https://crates.io/crates/url), [webbrowser](https://crates.io/crates/webbrowser) & [structopt](https://docs.rs/structopt/latest/structopt/) crates.
 
 Enjoy searching!
