@@ -1,21 +1,29 @@
-use structopt::StructOpt;
+use clap::{ArgGroup, Parser};
 
-#[derive(StructOpt)]
-#[structopt(
-name = "Sk (Seek)",
-about = "A command line app that opens a browser tab and searches for a query \
-        given a search engine argument (or not)")]
+
+#[derive(Parser, Debug)]
+#[command(
+    name = "Seek (Sk)",
+    version = "0.2.1",
+    about = "
+    Built for the ultimate comfort while coding!
+
+    A command line tool that lets you either search the web using a search engine or get responses from ChatGPT, depending on your needs, all from the terminal.
+    ",
+    group(
+    ArgGroup::new("engines")
+        .required(true)
+        .args(&["bg", "ddg", "gg", "gpt"])
+))]
 pub struct CLIArgs {
-    /// Sets search engine to DuckDuckGo
-    #[structopt(short = "d", long = "ddg", global=false)]
-    pub ddg: bool,
-    /// Sets search engine to Bing
-    #[structopt(short = "b", long = "bg", global=false)]
+    #[clap(long = "bg", help = "Sets search engine to Bing")]
     pub bg: bool,
-    /// Sets search engine to Google (default)
-    #[structopt(short = "g", long = "gg", global=true)]
+    #[clap(long = "ddg", help = "Sets search engine to DuckDuckGo")]
+    pub ddg: bool,
+    #[clap(long = "gg", help = "Sets search engine to Google")]
     pub gg: bool,
-    /// The query to be searched with the selected search engine
-    #[structopt(required = true)]
-    pub search_query: Vec<String>,
+    #[clap(long = "gpt", help = "Prompts ChatGPT model gpt-4o-mini")]
+    pub gpt: bool,
+    #[clap(required = true, help = "Query to be searched using a search engine or to prompt ChatGPT")]
+    pub query: Vec<String>
 }
