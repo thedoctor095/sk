@@ -1,15 +1,28 @@
 # Overview
+<p align="center">
+    <a href="https://opensource.org/licenses/MIT" alt="MIT License">
+        <img src="https://img.shields.io/badge/License-MIT-orange.svg" /></a>
+    <a href="https://www.rust-lang.org/tools/install" alt="Rust 1.83.0">
+        <img src="https://img.shields.io/badge/Rust-1.83.0-orange.svg" /></a>
+</p>
+<p align="center">
+    <strong>
+    Built for the ultimate comfort while coding!
+    </strong>
+</p>
 
-Sk (Seek) is a command-line interface (CLI) application written in Rust that allows users to input any search query as argument and opens a browser tab to search the input using various search engines. It provides a convenient way to quickly look up information from different sources without manually opening a web browser.
+Sk (Seek) is a command-line interface (CLI) tool written in Rust that lets you either search the web using a search engine or get responses from ChatGPT, depending on your needs, all from the terminal.
 
 # Features
 
-Search Engines: Incorporates multiple search engines: DuckDuckGo / Bing / Google.
+Incorporates multiple search engines: Bing, DuckDuckGo or Google.
 
-Efficiency: Quickly launch searches from the command line without the need to open a browser manually.
+Query ChatGPT for blazing fast responses tailored to assist during coding.
+
+Quickly launch searches from the command line without the need to manually open a browser.
 
 # Prerequisites
-_Make sure **Rust** is installed on your system - this application was built & tested on **Ubuntu 22.04.3 LTS**_
+Make sure **Rust** is installed on your system - the tool was tested on **MacOS Ventura 13.3.1** and **Ubuntu 22.04.3 LTS**
 
 # Installation
 
@@ -35,21 +48,23 @@ cargo build --release
 
 # Usage
 ```
-Sk (Seek) 0.1.3
-A command line app that opens a browser tab and searches for a query given a search engine argument (or not)
+    Built for the ultimate comfort while coding!
 
-USAGE:
-    sk [FLAGS] <search-query>...
+    A command line tool that lets you either search the web using a search engine or get responses from ChatGPT, depending on your needs, all from the terminal.
+    
 
-FLAGS:
-    -b, --bg         Sets search engine to Bing
-    -d, --ddg        Sets search engine to DuckDuckGo
-    -g, --gg         Sets search engine to Google (default)
-    -h, --help       Prints help information
-    -V, --version    Prints version information
+Usage: sk <--bg|--ddg|--gg|--gpt> <QUERY>...
 
-ARGS:
-    <search-query>...    The query to be searched with the selected search engine
+Arguments:
+  <QUERY>...  Query to be searched using a search engine or to prompt ChatGPT
+
+Options:
+      --bg       Sets search engine to Bing
+      --ddg      Sets search engine to DuckDuckGo
+      --gg       Sets search engine to Google
+      --gpt      Prompts ChatGPT model gpt-4o-mini
+  -h, --help     Print help
+  -V, --version  Print version
 
 ```
 
@@ -57,15 +72,30 @@ ARGS:
 
 **1. Basic usage**
 ```
-./target/release/sk "weather today in Oslo"
-```
-**2. Specify Search Engine**
-```
 ./target/release/sk --ddg "weather today in Oslo"
+
+Opening https://duckduckgo.com/?q=weather+today+in+oslo
+```
+**2. Query ChatGPT**
+```
+./target/release/sk --gpt factorial implementation in rust
+
+fn factorial(n: u64) -> u64 {
+    if n == 0 {
+        1
+    } else {
+        n * factorial(n - 1)
+    }
+}
+
+fn main() {
+    let num = 5;
+    println!("Factorial of {} is {}", num, factorial(num));
+}
 ```
 **3. Help Menu**
 ```
-./target/release/sk
+./target/release/sk --help
 ```
 
 # Contributing
@@ -78,6 +108,6 @@ This project is licensed under the MIT License - see the [LICENSE](https://githu
 
 # Acknowledgments
 
-This project uses the [url](https://crates.io/crates/url), [webbrowser](https://crates.io/crates/webbrowser) & [structopt](https://docs.rs/structopt/latest/structopt/) crates.
+This project uses [clap](https://crates.io/crates/clap), [openai-api-rs](https://crates.io/crates/openai-api-rs), [tokio](https://crates.io/crates/tokio), [url](https://crates.io/crates/url) & [webbrowser](https://crates.io/crates/webbrowser)crates.
 
 Enjoy searching!
