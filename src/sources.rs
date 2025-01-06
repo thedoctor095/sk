@@ -1,9 +1,10 @@
-use crate::{browser_impl::BrowserSearch, CLIArgs};
 use crate::agent_impl::AIAssistant;
+use crate::browser_impl::BrowserSearch;
+use crate::cli::CLIArgs;
 
-const GOOGLE: &'static str = "https://www.google.com/search"; // ?q=top+gun
-const DDG: &'static str = "https://duckduckgo.com/"; // ?q=top+gun
 const BING: &'static str = "https://www.bing.com/search"; // ?q=top+gun
+const DDG: &'static str = "https://duckduckgo.com/"; // ?q=top+gun
+const GOOGLE: &'static str = "https://www.google.com/search"; // ?q=top+gun
 
 pub enum HelperType {
     AIAssistant(AIAssistant),

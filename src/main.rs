@@ -1,5 +1,5 @@
-use browser_impl::SearchBrowserQuery;
 use agent_impl::PromptAI;
+use browser_impl::SearchBrowserQuery;
 use clap::Parser;
 use cli::CLIArgs;
 use sources::{set_source, HelperType};

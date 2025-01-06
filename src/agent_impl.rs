@@ -49,8 +49,8 @@ impl PromptAI for AIAssistant {
     fn build(&self, api_key: String) -> OpenAIClient {
         match OpenAIClient::builder().with_api_key(api_key).build() {
             Ok(value) => return value,
-            Err(_) => {
-                println!("Could not build OpenAIClient");
+            Err(e) => {
+                println!("Could not build OpenAIClient: {:?}", e);
                 process::exit(1);
             }
         };
